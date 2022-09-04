@@ -11,5 +11,15 @@ def compstr(str1, str2):
     return ans
 
 
+# исключая одинаковые подстроки
+def compstr_v2(str1, str2):
+    mnoz1 = set([str1[i:i+2] for i in range(len(str1)-1)])
+    mnoz2 = set([str2[i:i+2] for i in range(len(str2)-1)])
+    itog = mnoz1 & mnoz2
+    print(f'Количество совпадений - {len(itog)}')
+    return itog
 
-print(*compstr(input(), input()), sep=", ")
+
+a, b = input(), input()
+print(*compstr(a, b), sep=", ")
+print(*compstr_v2(a, b), sep=", ")
